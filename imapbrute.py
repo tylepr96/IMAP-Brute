@@ -28,7 +28,7 @@ print colored("\nAttention: Enter -n as number@mms.att.net = AT&T number@vtext.c
 
 args = parser.parse_args()
 
-if args > 7:
+if args == None:
 
 	print parser.print_help()
 
